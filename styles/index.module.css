@@ -1,0 +1,10 @@
+.loginContainer {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffcdab;
+  /* padding: 8.56rem 12rem; */
+}
