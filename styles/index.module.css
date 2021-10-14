@@ -1,10 +1,23 @@
-.loginContainer {
-  width: 100vw;
-  height: 100vh;
+/***************VARIABLES**************/
 
+/***************PRINCIPAL LIGHT BOX - HOME**************/
+
+/***************image - HOME**************/
+
+div.defaultForm {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffcdab;
-  /* padding: 8.56rem 12rem; */
+  flex-direction: column;
+}
+
+div.defaultForm label {
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/***************buttonBox**************/
+.buttonBox {
+  /* margin: 1rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

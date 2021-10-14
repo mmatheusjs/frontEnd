@@ -10,31 +10,34 @@ export default function Home() {
     alert(`Seu usuário é: ${user} e sua senha é ${password}`)
   }
   return (
-    <main className={styles.loginContainer}>
-      <div id="firstPage">
-        {/* <div class="homeImage"> */}
-        <img
-          src="https://images.unsplash.com/photo-1565567852159-38204cd84f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-          alt=""
-        ></img>
-        {/* </div> */}
+    <main className="containerData">
+      <div className="studyImage">
+        <img src="studies.svg" alt="studies"></img>
+      </div>
 
-        <div id="cardLogin">
-          <h1>Acesse sua área de formação</h1>
+      <div className="cardData">
+        <h1 className="title">Acesse a área de formação</h1>
 
-          <div class="userInput">
-            <input id="user" placeholder="Acólito" type="text" />
-            <input id="password" placeholder="Senha" type="password" />
+        <div className="userInput">
+          <input
+            id="user"
+            placeholder="Digite aqui seu nome de usuário..."
+            type="text"
+          />
+          <input
+            id="password"
+            placeholder="Digite aqui sua senha..."
+            type="password"
+          />
+        </div>
 
-            <div class="buttonBox">
-              <button class="button" onClick={clickButton}>
-                Entrar
-              </button>
-              <a href="#" class="button">
-                Criar conta
-              </a>
-            </div>
-          </div>
+        <div className={styles.buttonBox}>
+          <button className="button" onClick={clickButton}>
+            Entrar
+          </button>
+          <a href="#" className="button">
+            Primeira vez aqui
+          </a>
         </div>
       </div>
     </main>
