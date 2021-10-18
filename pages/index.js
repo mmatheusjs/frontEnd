@@ -16,22 +16,24 @@ export default function Home() {
       </div>
 
       <div className="cardData">
-        <h1 className="title">Acesse a área de formação</h1>
+        <h1 className={styles.titleHome}>Acesse a área de formação</h1>
 
         <div className="userInput">
           <input
             id="user"
+            className={styles.inputHome}
             placeholder="Digite aqui seu nome de usuário..."
             type="text"
           />
           <input
             id="password"
+            className={styles.inputHome}
             placeholder="Digite aqui sua senha..."
             type="password"
           />
         </div>
 
-        <div className={styles.buttonBox}>
+        <div className="buttonBox">
           <button className="button" onClick={clickButton}>
             Entrar
           </button>

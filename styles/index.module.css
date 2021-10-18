@@ -4,20 +4,18 @@
 
 /***************image - HOME**************/
 
-div.defaultForm {
-  display: flex;
-  flex-direction: column;
-}
-
-div.defaultForm label {
-  margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
-}
-
 /***************buttonBox**************/
-.buttonBox {
-  /* margin: 1rem; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+h1.titleHome {
+  margin-bottom: 4rem;
+}
+
+input.inputHome {
+  margin-bottom: 3rem;
+  padding: 1rem;
+  width: 27.5rem;
+  height: 4rem;
+  border-radius: 1.25rem;
+
+  font-size: 1rem;
 }

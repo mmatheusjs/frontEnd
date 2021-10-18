@@ -65,11 +65,14 @@ main div.cardData {
   border-radius: 1.56rem;
 }
 
-h1.title {
-  margin-bottom: 4rem;
+h1 {
   font-weight: 600;
   font-size: 1.7rem;
   color: var(--font-color);
+}
+
+.defaultText {
+  font-weight: 400;
 }
 
 .userInput {
@@ -78,25 +81,28 @@ h1.title {
   align-items: center;
 }
 
-.userInput input {
-  margin-bottom: 3rem;
-  padding: 1rem;
-
-  width: 27.5rem;
-  height: 4rem;
-  background-color: var(--base-color);
-  border-radius: 1.25rem;
+.userInput input,
+.userInput select {
   border: none;
   outline: 0;
-  font-size: 1rem;
+  background-color: var(--base-color);
+
   font-weight: 500;
   color: var(--font-color);
   transition: 0.3s;
 }
 
-.userInput input:focus {
+.userInput input:focus,
+.userInput select:focus {
   transform: scale(1.02);
   box-shadow: 0.5px 0.5px 3px var(--box-shadow-color);
+}
+
+.buttonBox {
+  /* margin: 1rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .button {
@@ -106,7 +112,7 @@ h1.title {
   background-color: var(--base-color);
   color: var(--font-color);
 
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
 
   display: flex;
