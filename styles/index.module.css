@@ -1,11 +1,3 @@
-/***************VARIABLES**************/
-
-/***************PRINCIPAL LIGHT BOX - HOME**************/
-
-/***************image - HOME**************/
-
-/***************buttonBox**************/
-
 h1.titleHome {
   margin-bottom: 4rem;
 }
@@ -15,7 +7,39 @@ input.inputHome {
   padding: 1rem;
   width: 27.5rem;
   height: 4rem;
-  border-radius: 1.25rem;
+  border-radius: 5px;
 
   font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+  h1.titleHome {
+    margin-bottom: 1rem;
+  }
+
+  input.inputHome {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    width: 17.5rem;
+    height: 3rem;
+    border-radius: 5px;
+
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 340px) {
+  h1.titleHome {
+    margin-bottom: 0rem;
+  }
+
+  input.inputHome {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    width: 13rem;
+    height: 3rem;
+    border-radius: 5px;
+
+    font-size: 0.8rem;
+  }
 }

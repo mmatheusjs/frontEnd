@@ -1,5 +1,5 @@
 h1.titleRegister {
-  margin: 2rem 2rem 4rem 2rem;
+  margin: 2rem 2rem 2rem 2rem;
 }
 
 #formRegister {
@@ -13,7 +13,7 @@ h1.titleRegister {
 div.defaultForm {
   display: flex;
   flex-direction: column;
-  margin: 0 2rem 2rem 2rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
 }
 
 div.defaultForm label {
@@ -25,10 +25,66 @@ input.inputRegister,
 select.inputRegister {
   padding: 1rem;
   width: 16.8rem;
-  border-radius: 0.8rem;
+  border-radius: 5px;
 }
 
 button#createAcc {
   width: 13rem;
+  height: 3rem;
   margin: 0 2rem 2rem 2rem;
+}
+
+@media (max-width: 1650px) {
+  div.defaultForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 1.2rem 1rem;
+  }
+
+  input.inputRegister,
+  select.inputRegister {
+    padding: 1rem;
+    width: 14.8rem;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 620px) {
+  h1.titleRegister {
+    margin-bottom: 1rem;
+  }
+
+  div.defaultForm {
+    margin: 0 1rem 0.5rem 1rem;
+  }
+
+  div.defaultForm label {
+    font-size: 0.7rem;
+  }
+
+  input.inputRegister,
+  select.inputRegister {
+    padding: 0.6rem;
+    width: 14rem;
+    border-radius: 5px;
+  }
+
+  button#createAcc {
+    width: 13rem;
+    height: 2.26rem;
+    font-size: 0.8rem;
+    margin: 0.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #cardDataOfRegister {
+    width: 250px;
+    height: 100%;
+  }
+
+  div.defaultForm label {
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+  }
 }

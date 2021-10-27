@@ -3,20 +3,21 @@ import Head from 'next/head'
 import styles from '../styles/index.module.css'
 
 export default function Home() {
-  // let title = 'Faça seu login'
   function clickButton() {
     let user = window.document.getElementById('user').value
     let password = window.document.getElementById('password').value
     alert(`Seu usuário é: ${user} e sua senha é ${password}`)
   }
+
   return (
-    <main className="containerData">
+    <main className="container">
       <div className="studyImage">
         <img src="studies.svg" alt="studies"></img>
       </div>
 
       <div className="cardData">
         <h1 className={styles.titleHome}>Acesse a área de formação</h1>
+        <img src="studies.svg" alt="studies" className="imageMobile"></img>
 
         <div className="userInput">
           <input
@@ -37,7 +38,7 @@ export default function Home() {
           <button className="button" onClick={clickButton}>
             Entrar
           </button>
-          <a href="#" className="button">
+          <a href="./register" className="button">
             Primeira vez aqui
           </a>
         </div>

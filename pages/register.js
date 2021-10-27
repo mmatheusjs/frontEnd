@@ -1,17 +1,16 @@
 import Head from 'next/head'
-// import styles from '../styles/index.module.css'
 import styles from '../styles/register.module.css'
 
 export default function Register() {
   return (
-    <main className="containerData">
-      {/* <div id="registerPage" className="dataUser"> */}
+    <main className="container">
       <div className="studyImage">
         <img src="studies.svg" alt="studies"></img>
       </div>
 
-      <div className="cardData">
+      <div id={styles.cardDataOfRegister} className="cardData">
         <h1 className={styles.titleRegister}>Faça o seu cadastro</h1>
+        <img src="studies.svg" alt="studies" className="imageMobile"></img>
 
         <form action="" id={styles.formRegister} className="userInput">
           <div className={styles.defaultForm}>
@@ -76,10 +75,10 @@ export default function Register() {
               className={styles.inputRegister}
               required
             >
+              <option value="" disabled selected>
+                Escolha uma missa para servir..
+              </option>
               <optgroup label="Sábado">
-                <option value="" disabled selected>
-                  Escolha uma missa para servir..
-                </option>
                 <option value="">07h00</option>
                 <option value="">17h00</option>
                 <option value="">20h00</option>
