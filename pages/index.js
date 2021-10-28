@@ -1,9 +1,12 @@
 // import Login from '../teste'
 import Head from 'next/head'
+import { api } from '../services/api'
 import styles from '../styles/index.module.css'
 
 export default function Home() {
-  function clickButton() {
+  async function clickButton() {
+    const result = await api.get('/')
+    console.log(result)
     let user = window.document.getElementById('user').value
     let password = window.document.getElementById('password').value
     alert(`Seu usuário é: ${user} e sua senha é ${password}`)
