@@ -9,7 +9,6 @@ export default function Home() {
     console.log(result)
     let user = window.document.getElementById('user').value
     let password = window.document.getElementById('password').value
-    alert(`Seu usuário é: ${user} e sua senha é ${password}`)
   }
 
   return (
