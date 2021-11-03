@@ -1,7 +1,29 @@
 import Head from 'next/head'
+import { api } from '../services/api'
 import styles from '../styles/register.module.css'
 
 export default function Register() {
+  async function clickButton() {
+    let user = window.document.getElementById('user').value
+    let email = window.document.getElementById('email').value
+    let telephone = window.document.getElementById('phone').value
+    let password = window.document.getElementById('password').value
+
+    await api
+      .post('/users', {
+        name: user,
+        email: email,
+        password: password,
+        telephone: telephone
+      })
+      .then(res => {
+        localStorage.setItem('session', JSON.stringify(res.data))
+        window.location.href = 'http://localhost:3000/formation'
+      })
+      .catch(error => {
+        alert(error.response.data.message)
+      })
+  }
   return (
     <main className="container">
       <div className="studyImage">
@@ -93,7 +115,11 @@ export default function Register() {
           </div>
         </form>
         <div className="buttonBox">
-          <button id={styles.createAcc} className="button">
+          <button
+            id={styles.createAcc}
+            className="button"
+            onClick={clickButton}
+          >
             Criar Conta
           </button>
         </div>

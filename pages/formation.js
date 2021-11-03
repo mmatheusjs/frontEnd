@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import styles from '../styles/formation.module.css'
+import { useEffect } from 'react'
 
 export default function Formation() {
+  let email = null
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem('session')).email)
+  }, [])
   return (
     <main className="containerFormation">
       <header id="header">
@@ -27,6 +32,8 @@ export default function Formation() {
           <div className="toggle icon-close">X</div> */}
         </nav>
       </header>
+
+      {email}
     </main>
   )
 }

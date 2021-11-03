@@ -1,14 +1,24 @@
-// import Login from '../teste'
 import Head from 'next/head'
 import { api } from '../services/api'
 import styles from '../styles/index.module.css'
 
 export default function Home() {
   async function clickButton() {
-    const result = await api.get('/')
-    console.log(result)
     let user = window.document.getElementById('user').value
     let password = window.document.getElementById('password').value
+
+    await api
+      .post('/users/login', {
+        email: user,
+        password: password
+      })
+      .then(res => {
+        localStorage.setItem('session', JSON.stringify(res.data))
+        window.location.href = 'http://localhost:3000/formation'
+      })
+      .catch(error => {
+        alert(error.response.data.message)
+      })
   }
 
   return (
@@ -35,7 +45,6 @@ export default function Home() {
             type="password"
           />
         </div>
-
         <div className="buttonBox">
           <button className="button" onClick={clickButton}>
             Entrar
