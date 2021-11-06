@@ -12,7 +12,7 @@ export default function Home() {
         email: user,
         password: password,
       })
-      .then((res) => {       
+      .then((res) => {
         cookie.set("session", JSON.stringify(res.data[0]));
         window.location.href = "http://localhost:3000/formation";
       })
@@ -23,35 +23,37 @@ export default function Home() {
 
   return (
     <main className="container">
-      <div className="studyImage">
-        <img src="studies.svg" alt="studies" />
-      </div>
-
-      <div className="cardData">
-        <h1 className={styles.titleHome}>Acesse a área de formação</h1>
-        <img src="studies.svg" alt="studies" className="imageMobile" />
-
-        <div className="userInput">
-          <input
-            id="user"
-            className={styles.inputHome}
-            placeholder="Digite aqui seu nome de usuário..."
-            type="text"
-          />
-          <input
-            id="password"
-            className={styles.inputHome}
-            placeholder="Digite aqui sua senha..."
-            type="password"
-          />
+      <div className="square-box">
+        <div className="studyImage">
+          <img src="studies.svg" alt="studies" />
         </div>
-        <div className="buttonBox">
-          <button className="button" onClick={clickButton}>
-            Entrar
-          </button>
-          <a href="./register" className="button">
-            Primeira vez aqui
-          </a>
+
+        <div className="cardData">
+          <h1 className={styles.titleHome}>Acesse a área de formação</h1>
+          <img src="studies.svg" alt="studies" className="imageMobile" />
+
+          <div className="userInput">
+            <input
+              id="user"
+              className={styles.inputHome}
+              placeholder="Digite aqui seu nome de usuário..."
+              type="text"
+            />
+            <input
+              id="password"
+              className={styles.inputHome}
+              placeholder="Digite aqui sua senha..."
+              type="password"
+            />
+          </div>
+          <div className="buttonBox">
+            <button className="button" onClick={clickButton}>
+              Entrar
+            </button>
+            <a href="./register" className="button">
+              Primeira vez aqui
+            </a>
+          </div>
         </div>
       </div>
     </main>

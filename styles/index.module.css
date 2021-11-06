@@ -19,7 +19,7 @@ input.inputHome {
 }
 @media (max-width: 800px) {
   h1.titleHome {
-    margin-bottom: 1rem;
+    margin: 1rem;
   }
 
   input.inputHome {
