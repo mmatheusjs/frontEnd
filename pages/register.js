@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import cookie from "cookie-cutter"
 import { api } from '../services/api'
 import styles from '../styles/register.module.css'
 
@@ -17,7 +17,7 @@ export default function Register() {
         telephone: telephone
       })
       .then(res => {
-        localStorage.setItem('session', JSON.stringify(res.data))
+        cookie.set('session', JSON.stringify(res.data[0]))
         window.location.href = 'http://localhost:3000/formation'
       })
       .catch(error => {
@@ -36,7 +36,7 @@ export default function Register() {
 
         <form action="" id={styles.formRegister} className="userInput">
           <div className={styles.defaultForm}>
-            <label className="defaultText" for="user">
+            <label className="defaultText" htmlFor="user">
               Nome de Usuário
             </label>
             <input
@@ -49,7 +49,7 @@ export default function Register() {
           </div>
 
           <div className={styles.defaultForm}>
-            <label className="defaultText" for="email">
+            <label className="defaultText" htmlFor="email">
               Email
             </label>
             <input
@@ -62,7 +62,7 @@ export default function Register() {
           </div>
 
           <div className={styles.defaultForm}>
-            <label className="defaultText" for="phone">
+            <label className="defaultText" htmlFor="phone">
               Telefone/Celular
             </label>
             <input
@@ -75,7 +75,7 @@ export default function Register() {
           </div>
 
           <div className={styles.defaultForm}>
-            <label className="defaultText" for="password">
+            <label className="defaultText" htmlFor="password">
               Senha
             </label>
             <input
@@ -88,7 +88,7 @@ export default function Register() {
           </div>
 
           <div className={styles.defaultForm}>
-            <label className="defaultText" for="missa">
+            <label className="defaultText" htmlFor="missa">
               Disponibilidade de horário
             </label>
             <select

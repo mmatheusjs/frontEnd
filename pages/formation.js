@@ -1,12 +1,14 @@
-import Head from 'next/head'
-import styles from '../styles/formation.module.css'
-import { useEffect } from 'react'
+import cookieCutter from "cookie-cutter";
+import { useEffect, useState } from "react";
 
 export default function Formation() {
-  let email = null
+  const [name, setName] = useState("");
+
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('session')).email)
-  }, [])
+    let user = JSON.parse(cookieCutter.get("session"));
+    setName(user.name);
+  }, []);
+
   return (
     <main className="containerFormation">
       <header id="header">
@@ -28,12 +30,9 @@ export default function Formation() {
               </li>
             </ul>
           </div>
-          {/* <div className="toggle icon-menu">...</div>
-          <div className="toggle icon-close">X</div> */}
         </nav>
       </header>
-
-      {email}
+      <p> Ola {name}</p>
     </main>
-  )
+  );
 }

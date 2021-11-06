@@ -1,35 +1,35 @@
-import Head from 'next/head'
-import { api } from '../services/api'
-import styles from '../styles/index.module.css'
+import cookie from "cookie-cutter";
+import { api } from "../services/api";
+import styles from "../styles/index.module.css";
 
 export default function Home() {
   async function clickButton() {
-    let user = window.document.getElementById('user').value
-    let password = window.document.getElementById('password').value
+    let user = window.document.getElementById("user").value;
+    let password = window.document.getElementById("password").value;
 
     await api
-      .post('/users/login', {
+      .post("/users/login", {
         email: user,
-        password: password
+        password: password,
       })
-      .then(res => {
-        localStorage.setItem('session', JSON.stringify(res.data))
-        window.location.href = 'http://localhost:3000/formation'
+      .then((res) => {       
+        cookie.set("session", JSON.stringify(res.data[0]));
+        window.location.href = "http://localhost:3000/formation";
       })
-      .catch(error => {
-        alert(error.response.data.message)
-      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   }
 
   return (
     <main className="container">
       <div className="studyImage">
-        <img src="studies.svg" alt="studies"></img>
+        <img src="studies.svg" alt="studies" />
       </div>
 
       <div className="cardData">
         <h1 className={styles.titleHome}>Acesse a área de formação</h1>
-        <img src="studies.svg" alt="studies" className="imageMobile"></img>
+        <img src="studies.svg" alt="studies" className="imageMobile" />
 
         <div className="userInput">
           <input
@@ -55,5 +55,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  )
+  );
 }
