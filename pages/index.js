@@ -1,24 +1,24 @@
-import cookie from "cookie-cutter";
-import { api } from "../services/api";
-import styles from "../styles/index.module.css";
+import cookie from 'cookie-cutter'
+import { api } from '../services/api'
+import styles from '../styles/index.module.css'
 
-export default function Home() {
+export default function Login() {
   async function clickButton() {
-    let user = window.document.getElementById("user").value;
-    let password = window.document.getElementById("password").value;
+    let user = window.document.getElementById('user').value
+    let password = window.document.getElementById('password').value
 
     await api
-      .post("/users/login", {
+      .post('/users/login', {
         email: user,
-        password: password,
+        password: password
       })
-      .then((res) => {
-        cookie.set("session", JSON.stringify(res.data[0]));
-        window.location.href = "http://localhost:3000/formation";
+      .then(res => {
+        cookie.set('session', JSON.stringify(res.data[0]))
+        window.location.href = 'http://localhost:3000/home'
       })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+      .catch(error => {
+        alert(error.response.data.message)
+      })
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Home() {
             <input
               id="user"
               className={styles.inputHome}
-              placeholder="Digite aqui seu nome de usuário..."
+              placeholder="Digite aqui seu email..."
               type="text"
             />
             <input
@@ -57,5 +57,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  );
+  )
 }

@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
@@ -241,11 +241,12 @@ h1 {
   }
 }
 
-/*****************FORMATION******************  */
+/*****************USER AREA******************  */
 
 #header {
-  padding: 1.8rem;
   width: 100%;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
   display: flex;
 
   background: var(--base-color);

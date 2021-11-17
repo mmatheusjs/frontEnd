@@ -1,28 +1,28 @@
-import cookie from "cookie-cutter";
-import { api } from "../services/api";
-import styles from "../styles/register.module.css";
+import cookie from 'cookie-cutter'
+import { api } from '../services/api'
+import styles from '../styles/register.module.css'
 
 export default function Register() {
   async function clickButton() {
-    let user = window.document.getElementById("user").value;
-    let email = window.document.getElementById("email").value;
-    let telephone = window.document.getElementById("phone").value;
-    let password = window.document.getElementById("password").value;
+    let user = window.document.getElementById('user').value
+    let email = window.document.getElementById('email').value
+    let telephone = window.document.getElementById('phone').value
+    let password = window.document.getElementById('password').value
 
     await api
-      .post("/users", {
+      .post('/users', {
         name: user,
         email: email,
         password: password,
-        telephone: telephone,
+        telephone: telephone
       })
-      .then((res) => {
-        cookie.set("session", JSON.stringify(res.data[0]));
-        window.location.href = "http://localhost:3000/formation";
+      .then(res => {
+        cookie.set('session', JSON.stringify(res.data[0]))
+        window.location.href = 'http://localhost:3000/home'
       })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+      .catch(error => {
+        alert(error.response.data.message)
+      })
   }
   return (
     <main className="container">
@@ -127,5 +127,5 @@ export default function Register() {
         </div>
       </div>
     </main>
-  );
+  )
 }

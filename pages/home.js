@@ -1,16 +1,16 @@
-import cookieCutter from "cookie-cutter";
-import { useEffect, useState } from "react";
+import cookieCutter from 'cookie-cutter'
+import { useEffect, useState } from 'react'
 
-export default function Formation() {
-  const [name, setName] = useState("");
+export default function Home() {
+  const [name, setName] = useState('')
 
   useEffect(() => {
-    let user = JSON.parse(cookieCutter.get("session"));
-    setName(user.name);
-  }, []);
+    let user = JSON.parse(cookieCutter.get('session'))
+    setName(user.name)
+  }, [])
 
   return (
-    <main className="containerFormation">
+    <main className="containerHome">
       <header id="header">
         <nav className="navBox">
           <a className="logo" href="#">
@@ -20,13 +20,13 @@ export default function Formation() {
           <div className="menu">
             <ul className="linkList">
               <li>
-                <a href="#">Início</a>
+                <a href="./home">Início</a>
               </li>
               <li>
                 <a href="#">Aulas</a>
               </li>
               <li>
-                <a href="#">Perfil</a>
+                <a href="./profile">Perfil</a>
               </li>
             </ul>
           </div>
@@ -34,5 +34,5 @@ export default function Formation() {
       </header>
       <p> Ola {name}</p>
     </main>
-  );
+  )
 }
