@@ -1,6 +1,7 @@
 import cookieCutter from 'cookie-cutter'
 import { api } from '../services/api'
 import styles from '../styles/profile.module.css'
+import { useEffect } from 'react'
 
 export default function Profile() {
   async function changeData() {
@@ -23,6 +24,40 @@ export default function Profile() {
         alert(error.response.data.message)
       })
   }
+
+  async function changePassword() {
+    let user = JSON.parse(cookieCutter.get('session'))
+    let newPassword = window.document.getElementById('newPassword').value
+    let newConfirmedPassword = window.document.getElementById(
+      'newConfirmedPassword'
+    ).value
+    let oldPassword = window.document.getElementById('oldPassword').value
+
+    if (newPassword === newConfirmedPassword) {
+      await api
+        .put('/users/change_password', {
+          id: user.id,
+          oldPassword,
+          newPassword
+        })
+        .then(res => {
+          alert(res.data.message)
+        })
+        .catch(error => {
+          alert(error.response.data.message)
+        })
+    } else {
+      alert('Senhas diferentes')
+    }
+  }
+
+  useEffect(() => {
+    let user = JSON.parse(cookieCutter.get('session'))
+    // setName(user.name)
+    window.document.getElementById('name').value = user.name
+    window.document.getElementById('email').value = user.email
+    window.document.getElementById('telephone').value = user.telephone
+  }, [])
 
   return (
     <main className={styles.containerProfile}>
@@ -136,15 +171,31 @@ export default function Profile() {
                 Nova senha:
               </label>
               <input
-                id="password"
+                id="newPassword"
                 className={styles.inputProfile}
                 placeholder="Digite aqui a sua nova senha.."
                 type="password"
                 required
               />
             </div>
+
+            <div className={styles.field}>
+              <label className="defaultText" htmlFor="password">
+                Confirme sua nova senha:
+              </label>
+              <input
+                id="newConfirmedPassword"
+                className={styles.inputProfile}
+                placeholder="Digite aqui a sua nova senha.."
+                type="password"
+                required
+              />
+            </div>
+
             <div className="buttonBox">
-              <button className="button">Alterar</button>
+              <button className="button" type="button" onClick={changePassword}>
+                Alterar
+              </button>
             </div>
           </form>
         </section>
