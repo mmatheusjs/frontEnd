@@ -89,8 +89,8 @@ h1 {
   align-items: center;
 }
 
-.userInput input,
-.userInput select {
+input,
+select {
   border: none;
   outline: 0;
   background-color: var(--base-color);
@@ -100,14 +100,13 @@ h1 {
   transition: 0.3s;
 }
 
-.userInput input:focus,
-.userInput select:focus {
+input:focus,
+select:focus {
   transform: scale(1.02);
   box-shadow: 0.5px 0.5px 3px var(--box-shadow-color);
 }
 
 .buttonBox {
-  /* margin: 1rem; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -245,7 +244,7 @@ h1 {
 
 #header {
   width: 100%;
-  padding: 1.8rem;
+  padding: 1.4rem;
   margin-bottom: 2rem;
   display: flex;
 

@@ -1,4 +1,4 @@
-.profileBox {
+div.inviteBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   margin-bottom: 2rem;
 }
 
-.sectionContainer {
+.inviteContainer {
   margin: 0rem 5rem 1rem 5rem;
   width: 80%;
   padding: 5rem;
@@ -19,25 +19,16 @@
   background: rgba(255, 255, 255, 0.979);
 }
 
-.sectionContainer h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
 .field {
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
 }
 
-label.defaulText {
-  font-weight: 500;
-}
-
-input.inputProfile {
+.inputInvite {
   margin-bottom: 1rem;
   padding-left: 1rem;
-  width: 27.5rem;
+  width: 20rem;
   height: 3rem;
   border-radius: 5px;
 
@@ -51,12 +42,11 @@ input.inputProfile {
   color: var(--font-color);
   transition: 0.3s;
 }
-
-.divider {
-  height: 1px;
-  background: linear-gradient(
-    270deg,
-    rgb(185, 166, 106),
-    hsla(42, 64%, 88%, 0.34)
-  );
+.field textarea {
+  padding: 8px;
+  max-width: 100%;
+  /* line-height: 1.5; */
+  border-radius: 5px;
+  border: 0.5px solid #ccc;
+  box-shadow: 0.5px 0.5px 0.5px #999;
 }

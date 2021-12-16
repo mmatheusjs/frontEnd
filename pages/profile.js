@@ -51,9 +51,28 @@ export default function Profile() {
     }
   }
 
+  async function deleteAccount() {
+    let user = JSON.parse(cookieCutter.get('session'))
+    await api
+      .delete('/users/delete', {
+        data: {
+          id: user.id
+        }
+      })
+      .then(res => {
+        alert('Conta deletada com sucesso')
+        cookieCutter.set('session', '')
+        window.location.href = 'http://localhost:3000/'
+      })
+      .catch(error => {
+        // console.log(error)
+        alert(error.response.data.message)
+      })
+  }
+
   useEffect(() => {
     let user = JSON.parse(cookieCutter.get('session'))
-    // setName(user.name)
+
     window.document.getElementById('name').value = user.name
     window.document.getElementById('email').value = user.email
     window.document.getElementById('telephone').value = user.telephone
@@ -73,7 +92,7 @@ export default function Profile() {
                 <a href="./home">Início</a>
               </li>
               <li>
-                <a href="#">Aulas</a>
+                <a href="./schedule">Escala</a>
               </li>
               <li>
                 <a href="#">Perfil</a>
@@ -87,12 +106,7 @@ export default function Profile() {
         <section id={styles.personalData} className={styles.sectionContainer}>
           <h1>Meus dados</h1>
 
-          <form
-            name="myData"
-            action=""
-            id={styles.formProfile}
-            className="userInput"
-          >
+          <form name="myData" action="" id="formProfile" className="userInput">
             <div className={styles.field}>
               <label className="defaultText" htmlFor="user">
                 Nome de Usuário:
@@ -134,7 +148,7 @@ export default function Profile() {
 
             <div className="buttonBox">
               <button type="button" className="button" onClick={changeData}>
-                Alterar
+                Alterar dados
               </button>
             </div>
           </form>
@@ -194,10 +208,20 @@ export default function Profile() {
 
             <div className="buttonBox">
               <button className="button" type="button" onClick={changePassword}>
-                Alterar
+                Alterar senha
               </button>
             </div>
           </form>
+        </section>
+
+        <section id={styles.deleteAccount} className={styles.sectionContainer}>
+          <h1>Deletar minha conta</h1>
+
+          <div className="buttonBox">
+            <button className="button" type="button" onClick={deleteAccount}>
+              Deletar
+            </button>
+          </div>
         </section>
       </div>
     </main>

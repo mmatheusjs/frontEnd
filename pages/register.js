@@ -16,9 +16,19 @@ export default function Register() {
         password: password,
         telephone: telephone
       })
-      .then(res => {
+      .then(async res => {
+        var url = new URL(window.location.href)
+        var manager_id = url.searchParams.get('manager_id')
+        if (manager_id) {
+          await api.post('/groups/adduser', {
+            manager_id: manager_id,
+            telephone: telephone
+          })
+        }
+
         cookie.set('session', JSON.stringify(res.data[0]))
-        window.location.href = 'http://localhost:3000/home'
+
+        window.location.href = 'http://localhost:3000/schedule'
       })
       .catch(error => {
         alert(error.response.data.message)
